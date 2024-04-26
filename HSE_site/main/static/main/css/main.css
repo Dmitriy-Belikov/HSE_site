@@ -1,0 +1,54 @@
+body {
+    background: #f6f8f4;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+logo {
+    img {width: 100%; object-fit: contain}
+    float: left;
+    padding: 7% 5%;
+}
+
+aside {
+    margin-top: 1%;
+    float: left;
+    background: white;
+    width: 20%;
+    padding: 0.1%;
+    height: 45vh;
+    color: #20345f;
+    border-right: 0px solid;
+    box-shadow: 2px 2px 5px #a7aac2;
+    border-radius: 20px;
+
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside ul li {
+    color: black;
+    display: block;
+    margin-top: 5%;
+    font-size: 150%;
+    transition: transform .6s ease;
+}
+aside ul li:hover, aside ul a:hover {
+    color: #235148;
+    transform: scale(1.05);
+}
+
+main .features {
+    float: left;
+    color: black;
+    margin-top: 1%;
+    text-align: center;
+    width: 75%;
+
+}
+main .features h1 {font-size: 200%;}
+main .features p {max-width: 80%; margin: 100px auto}
