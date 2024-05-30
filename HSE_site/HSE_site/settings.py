@@ -134,10 +134,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 
-EMAIL_USE_TLS = False
-EMAIL_HOST = '10.7.6.69'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = r'Dmitry.Belikov@techofs.com'
-EMAIL_HOST_PASSWORD = '1dcd9ed1Q2023'
-DEFAULT_FROM_EMAIL = 'HSE_site@techofs.com'
-DEFAULT_TO_EMAIL = 'HSE_no_reply@techofs.com'
