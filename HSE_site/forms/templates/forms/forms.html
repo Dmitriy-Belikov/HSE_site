@@ -4,10 +4,71 @@
 {% block title %}Карта наблюдения{% endblock %}
 
 {% block content %}
+
+
+
     <div class="features">
-        <h1>Карта наблюдения</h1>
-        <p>Чтобы исправить повреждения в хранилище компонентов образа Windows нужно использовать опцию RestoreHealth команды DISM. Эта опция позволит исправить найденные в образе ошибки, автоматически скачать и заменить файлы повреждённых или отсутствующих компонентов эталонными версиями файлов из центра обновлений Windows (на компьютере должен быть доступ в Интернет)</p>
-        <button class="btn btn-danger">Нажми </button>
+        <h1 >Карты наблюдений</h1>
+                {% for el in page_obj %}
+        <div class="alert alert-warning">
+            <h5>{{ el.form }} № {{ el.id }} от {{ el.date|date:"d.m.y H:i" }}</h5><br>
+                <div class="obs_map" >
+                    <h6>ФИО</h6>
+                    <span>{{ el.name }}</span><br><br>
+                    <h6>Дата и время инцидента</h6>
+                    <span>{{ el.data_incident|date:"d.m.y H:i"}}</span><br><br>
+                    <h6>Условия или действия</h6>
+                    <span>{{ el.conditions }}</span><br><br>
+                    <h6>Остановка работ</h6>
+                    <span>{{ el.stop_work }}</span><br><br>
+                    <h6>Наблюдение в отношении</h6>
+                    <span>{{ el.observation_in }}</span><br><br>
+                    <h6>Категория</h6>
+                    <span>{{ el.category }}</span><br><br>
+                    <h6>Контроль со стороны ответственного</h6>
+                    <span>{{ el.control }}</span><br><br>
+                    <h6>Пострадавшие</h6>
+                    <span>{{ el.victims }}</span><br><br>
+                    <h6>Классификация инцидента </h6>
+                    <span>{{ el.incident_class }}</span><br><br>
+                    <h6>Классификация инцидента </h6>
+                    <span>{{ el.incident_class_fatal }}</span><br><br>
+
+                </div>
+                    {% if el.image1 %} <img src="{{ el.image1.url }}" width="100px" class="form-img">{% else %}  {% endif %}
+                    {% if el.image2 %} <img src="{{ el.image2.url }}" width="100px" class="form-img">{% else %}  {% endif %}
+                    {% if el.image3 %} <img src="{{ el.image3.url }}" width="100px" class="form-img">{% else %}  {% endif %}
+                    {% if el.image4 %} <img src="{{ el.image4.url }}" width="100px" class="form-img">{% else %}  {% endif %}
+                    {% if el.image5 %} <img src="{{ el.image5.url }}" width="100px" class="form-img">{% else %}  {% endif %}
+                    <br><br>
+                    <a href="{% url 'observation-map' el.id %}" class="btn btn-warning">Подробнее</a>
+        </div>
+        {% empty %}
+        <li>Что то пошло не так...</li>
+
     </div>
+{% endfor %}
+
+
+
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; первая</a>
+            <a href="?page={{ page_obj.previous_page_number }}">предыдущая</a>
+        {% endif %}
+
+        <span class="current">
+            Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">следующая</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">последняя &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 
 {% endblock %}

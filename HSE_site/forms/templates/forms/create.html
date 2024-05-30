@@ -1,0 +1,57 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}Внести карту наблюдений{% endblock %}
+
+{% block content %}
+
+
+    <div class="create">
+        <form action="" method="post" enctype="multipart/form-data">
+            <h1>Внести карту наблюдений</h1><br>
+            {% csrf_token %}
+            <h6>Форма заполнения <font color="red">*</font></h6>
+            {{ form.form }}<br>
+            <h6>ФИО <font color="red">*</font></h6>
+            {{ form.name }}<br>
+            <h6>E-mail <font color="red">*</font></h6>
+            {{ form.email }}<br>
+            <h6>Департамент <font color="red">*</font></h6>
+            {{ form.departament }}<br>
+            <h6>Дата и время инцидента <font color="red">*</font></h6>
+            {{ form.data_incident }}<br>
+            <h6>Место наблюдения <font color="red">*</font></h6>
+            {{ form.locations }}<br>
+            <h6>Локация <font color="red">*</font></h6>
+            {{ form.city }}<br>
+            <h6>Вы сотрудник <font color="red">*</font></h6>
+            {{ form.company }}<br>
+            <h6>Условия <font color="red">*</font></h6>
+            {{ form.conditions }}<br>
+            <h6>Была ли остановка работ <font color="red">*</font></h6>
+            {{ form.stop_work }}<br>
+            <h6>Наблюдение в отношении <font color="red">*</font></h6>
+            {{ form.observation_in }}<br>
+            <h6>Опишите наблюдение <font color="red">*</font></h6>
+            {{ form.description }}<br>
+            <h6>Корректирующие действия <font color="red">*</font></h6>
+            {{ form.corrective }}
+            <h6>Категория <font color="red">*</font></h6>
+            {{ form.category }}
+            <h6>Необходим ли контроль, со стороны ответственного <font color="red">*</font></h6>
+            {{ form.control }}
+            <h6>Есть ли пострадавшие? <font color="red">*</font></h6>
+            {{ form.victims }}
+            <h6>Классификация инцидента <font color="red">*</font></h6>
+            {{ form.incident_class }}
+            <h6>Классификация инцидента <font color="red">*</font></h6>
+            {{ form.incident_class_fatal }}<br> <br>
+            <h6>По необходимости прикрепите фото:  <br><br> {{ form.image1 }} <br><br> {{ form.image2 }} <br><br> {{ form.image3 }} <br><br> {{ form.image4 }} <br><br> {{ form.image5 }} </h6>
+
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Внести карту</button>
+        </form>
+    </div>
+
+
+{% endblock %}

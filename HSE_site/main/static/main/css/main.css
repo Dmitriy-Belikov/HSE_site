@@ -1,5 +1,6 @@
 body {
     background: #f6f8f4;
+    max-width:100%;
 }
 
 a:link {
@@ -12,43 +13,221 @@ logo {
     padding: 7% 5%;
 }
 
-aside {
-    margin-top: 1%;
-    float: left;
-    background: white;
-    width: 20%;
-    padding: 0.1%;
-    height: 45vh;
-    color: #20345f;
-    border-right: 0px solid;
-    box-shadow: 2px 2px 5px #a7aac2;
-    border-radius: 20px;
-
-}
-
-aside ul {
-    list-style: none;
-}
-
-aside ul li {
-    color: black;
-    display: block;
-    margin-top: 5%;
-    font-size: 150%;
-    transition: transform .6s ease;
-}
-aside ul li:hover, aside ul a:hover {
-    color: #235148;
-    transform: scale(1.05);
-}
 
 main .features {
-    float: left;
+
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    float: center;
     color: black;
     margin-top: 1%;
     text-align: center;
-    width: 75%;
+    width: 100%;
+    line-height: 20px;
+    max-width:100%;
+
 
 }
-main .features h1 {font-size: 200%;}
-main .features p {max-width: 80%; margin: 100px auto}
+main .features h1 {font-size: 200%; max-width:100%;}
+main .features p {max-width: 80%; margin: 100px auto; max-width:100%;}
+
+main .observation_map {
+    box-shadow: 5px 5px 5px grey;
+    background: #eeeeee;
+    column-width: 48%;
+	column-count: 2;
+	column-gap: 4%;
+    border-radius: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    float: center;
+    color: black;
+    margin-top: 1%;
+    text-align: left;
+    width: 80%;
+    line-height: 20px;
+    max-width:100%;
+}
+main .description {
+    box-shadow: 5px 5px 5px grey;
+    background: #eeeeee;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    float: center;
+    color: black;
+    margin-top: 1%;
+    text-align: left;
+    width: 80%;
+    line-height: 20px;
+    max-width:100%;
+}
+
+.obs_map {
+    margin-top: 0.5em; /* Отступ сверху */
+    margin-bottom: 1em; /* Отступ снизу */
+    column-width: 48%;
+	column-count: 2;
+	column-gap: 1%;
+	column-height: 500px;
+    float: center;
+    clear: bothсв;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 100%;
+    line-height: 20px;
+
+}
+.alert-warning {
+    box-shadow: 5px 5px 5px grey;
+    background: #eeeeee;
+    float: center;
+    clear: both;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 100%;
+    line-height: 20px;
+}
+.date {
+    text-align: right;
+}
+.alert-primary {
+    box-shadow: 5px 5px 5px grey;
+
+
+    float: center;
+    clear: both;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 100%;
+    line-height: 20px;
+}
+
+.logo{
+    width: 200px;
+    max-width: 100%;
+
+}
+img {
+    width: 700px;
+    max-width:100%;
+}
+.form-img {
+    width: 100px;
+    width-max: 100%;
+
+}
+
+.news-img {
+
+    width: 300px;
+    width-max: 100%;
+
+}
+form {
+    text-align: center;
+    line-height: 200%;
+    float: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    margin-top: 10px;
+    max-width:90%;
+}
+
+.form-cotrol {
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-width:90%;
+}
+
+.red{
+	color: #ff0000;
+}
+
+
+input {
+  color: black;
+}
+
+
+
+.pagination {
+    float: center;
+    clear: both;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 100%;
+    line-height: 20px;
+}
+
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    list-style-type:  none;
+    max-width:100%;
+
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+    max-width: 100%;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    list-style-type:  none;
+    max-width: 100%;
+    width: 500px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 1000px;
+
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style-type:  none;
+    max-width: 100%;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    list-style-type:  none;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+

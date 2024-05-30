@@ -1,13 +1,51 @@
 {% extends 'main/layout.html' %}
 
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}Главная{% endblock %}
+
+
 
 {% block content %}
-    <div class="features">
-        <h1>{{ title }}</h1>
-        <p>Чтобы исправить повреждения в хранилище компонентов образа Windows нужно использовать опцию RestoreHealth команды DISM. Эта опция позволит исправить найденные в образе ошибки, автоматически скачать и заменить файлы повреждённых или отсутствующих компонентов эталонными версиями файлов из центра обновлений Windows (на компьютере должен быть доступ в Интернет)</p>
-        <button class="btn btn-warning">На страницу про нас </button>
+
+
+<div class="features">
+        <h1 >Новости</h1>
+
+                {% for el in page_obj %}
+        <div class="alert alert-primary">
+
+            <h5>{{ el.label }}</h5>
+            <span>{{ el.description|linebreaks }}</span>
+            {% if el.image1 %} <img src="{{ el.image1.url }}"class="news-img">{% else %}  {% endif %}
+            {% if el.image2 %} <img src="{{ el.image2.url }}"class="news-img">{% else %}  {% endif %}
+            <br><h6 class="date">{{ el.date }}</h6>
+                </div>
+
+        </div>
+        {% empty %}
+        <li>Что то пошло не так...</li>
+
+    </div>
+{% endfor %}
+                <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; первая   </a>
+            <a href="?page={{ page_obj.previous_page_number }}">предыдущая</a>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+        <span class="current">
+            Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+        </span>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">следующая   </a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">последняя &raquo;</a>
+        {% endif %}
+    </span>
+</div>
     </div>
 
 {% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}{{ form.form }} № {{ form.id }}{% endblock %}
+
+{% block content %}
+
+
+
+    <h1 align="center">{{ form.form }} № {{ form.id }} от {{ form.date }}</h1>
+    <div class="observation_map">
+            <h6>Форма</h6>
+            <p>{{ form.form }}</p>
+            <h6>ФИО</h6>
+            <p>{{ form.name }}</p>
+            <h6>E-mail</h6>
+            <p>{{ form.email }}</p>
+            <h6>Департамент</h6>
+            <p>{{ form.departament }}</p>
+            <h6>Дата и время инцидента</h6>
+            <p>{{ form.data_incident }}</p>
+            <h6>Место наблюдения</h6>
+            <p>{{ form.locations }}</p>
+            <h6>Локация</h6>
+            <p>{{ form.city }}</p>
+            <h6>Составил сотрудник </h6>
+            <p>{{ form.company }}</p>
+            <h6>Условия или действия</h6>
+            <p>{{ form.conditions }}</p>
+            <h6>Остановка работ</h6>
+            <p>{{ form.stop_work }}</p>
+            <h6>Наблюдение в отношении</h6>
+            <p>{{ form.observation_in }}</p>
+            <h6>Категория</h6>
+            <p>{{ form.category }}</p>
+            <h6>Контроль со стороны ответственного</h6>
+            <p>{{ form.control }}</p>
+            <h6>Пострадавшие</h6>
+            <p>{{ form.victims }}</p>
+            <h6>Классификация инцидента </h6>
+            <p>{{ form.incident_class }}</p>
+            <h6>Классификация инцидента</h6>
+            <p>{{ form.incident_class_fatal }}<br> <br>
+
+
+    </div>
+
+    <div class="description">
+        <h6>Описание</h6>
+            <p>{{ form.description }}</p><br>
+        <h6>Корректирующие действия</h6>
+            <p>{{ form.corrective }}</p><br><br>
+
+        <div class="image__wrapper">
+            {% if form.image1 %} <img src="{{ form.image1.url }}" >{% else %} {% endif %}<br><br>
+            {% if form.image2 %} <img src="{{ form.image2.url }}" >{% else %} {% endif %}<br><br>
+            {% if form.image3 %} <img src="{{ form.image3.url }}" >{% else %} {% endif %}<br><br>
+            {% if form.image4 %} <img src="{{ form.image4.url }}" >{% else %} {% endif %}<br><br>
+            {% if form.image5 %} <img src="{{ form.image5.url }}" >{% else %} {% endif %}<br><br>
+        </div>
+
+    </div>
+
+
+
+
+{% endblock %}

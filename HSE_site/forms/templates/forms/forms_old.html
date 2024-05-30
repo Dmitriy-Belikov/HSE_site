@@ -1,0 +1,64 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}Карта наблюдения{% endblock %}
+
+{% block content %}
+
+    <div class="features">
+        <h1>Карты наблюдений</h1>
+            <table>
+                <tr>
+                    <th>№</th>
+                    <th>Дата создания</th>
+                    <th>Форма</th>
+                    <th>ФИО</th>
+                    <th>Дата инцидента</th>
+                    <th>Действия опасно \ безопасно</th>
+                    <th>Стоп-карта</th>
+                    <th>Наблюдение в отношении</th>
+                    <th>Категория</th>
+                    <th>Конроль ответсвенного</th>
+                    <th>Количество пострадавших</th>
+                    <th>Степень классификации инцидента</th>
+                    <th>Классификация инцидента (что произошло)</th>
+                    <th>Фото 1</th>
+                    <th>Фото 2</th>
+
+                </tr>
+                {% for el in forms reversed %}
+
+                        <tr>
+                            <td>{{ el.id }}</a></td>
+                            <td>{{ el.date|date:"d.m.y H:i" }}</td>
+                            <td>{{ el.form }}</td>
+                            <td>{{ el.name }}</td>
+                            <td>{{ el.data_incident|date:"d.m.y H:i"}}</td>
+                            <td>{{ el.conditions }}</td>
+                            <td>{{ el.stop_work }}</td>
+                            <td>{{ el.observation_in }}</td>
+                            <td>{{ el.category }}</td>
+                            <td>{{ el.control }}</td>
+                            <td>{{ el.victims }}</td>
+                            <td>{{ el.incident_class }}</td>
+                            <td>{{ el.incident_class_fatal }}</td>
+                            <td> {% if el.image1 %} <img src="{{ el.image1.url }}" width="100px" >{% else %} Нет фото {% endif %}</td>
+                            <td> {% if el.image2 %} <img src="{{ el.image2.url }}" width="100px" >{% else %} Нет фото {% endif %}</td>
+
+
+
+                        </tr>
+                        <tr>
+                            <a href="{% url 'observation-map' el.id %}" class="btn btn-warning">Подробнее</a>
+                        </tr>
+                            {% empty %}
+                            <li>Что то пошло не так...</li>
+                            {% endfor %}
+
+
+
+            </table>
+    </div>
+
+
+{% endblock %}
